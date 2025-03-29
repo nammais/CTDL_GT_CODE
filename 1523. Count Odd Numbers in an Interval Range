@@ -1,0 +1,19 @@
+Duyệt qua tất cả các số từ low đến high.
+
+Kiểm tra nếu số nào là số lẻ (dư 1 khi chia cho 2).
+
+Đếm số lẻ và trả về kết quả.
+
+CODE: 
+class Solution {
+public:
+    int countOdds(int low, int high) {
+        int count = 0;
+        for(int i=low; i<=high; i++){
+            if(i % 2 != 0){
+                count++;
+            }
+        }
+        return count;
+    }
+};
