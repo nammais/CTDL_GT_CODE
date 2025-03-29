@@ -1,0 +1,25 @@
+Khởi tạo biến count: Dùng để đếm số lượng bit 1 trong số nhị phân của n.
+
+Duyệt qua từng bit của n: Sử dụng vòng lặp while để kiểm tra từng bit của số n cho đến khi n bằng 0.
+
+Kiểm tra bit cuối cùng: Kiểm tra nếu bit cuối cùng của n là 1 bằng cách sử dụng n % 2 == 1. Nếu đúng, tăng biến count.
+
+Chia n cho 2: Mỗi lần chia n cho 2 (n = n / 2), tiến sang bit tiếp theo.
+
+Trả về kết quả: Cuối cùng, trả về số lượng bit 1 được đếm trong số nhị phân của n.
+
+
+
+class Solution {
+public:
+    int hammingWeight(int n) {
+        int count = 0;
+        while (n > 0) {
+            if (n % 2 == 1) {  // Kiểm tra bit cuối cùng
+                count++;  // Tăng số lượng bit 1
+            }
+            n = n / 2;  // Chia n cho 2 để tiến sang bit tiếp theo
+        }
+        return count;
+    }
+};
