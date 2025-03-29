@@ -1,0 +1,24 @@
+Sắp xếp mảng salary: Đoạn code sử dụng sort để sắp xếp mảng lương từ thấp đến cao.
+
+Xóa giá trị nhỏ nhất và lớn nhất: Sau khi sắp xếp, dùng erase để xóa giá trị nhỏ nhất (vị trí đầu mảng) và giá trị lớn nhất (vị trí cuối mảng).
+
+Tính tổng các phần tử còn lại: Duyệt qua các phần tử còn lại trong mảng và cộng dồn vào biến avg.
+
+Trả về trung bình cộng: Cuối cùng, chia tổng avg cho số lượng phần tử còn lại để tính trung bình cộng và trả về kết quả.
+
+
+
+class Solution {
+public:
+    double average(vector<int>& salary) {
+        double avg=0;
+        sort(salary.begin(), salary.end());
+        salary.erase(salary.begin());
+        salary.erase(salary.end()-1);
+
+        for(int i=0;i<salary.size();i++){
+            avg+= salary[i];
+        }
+        return avg/salary.size();
+    }
+};
