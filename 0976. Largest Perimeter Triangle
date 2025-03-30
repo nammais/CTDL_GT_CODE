@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int largestPerimeter(vector<int>& nums) {
+        // Sắp xếp mảng theo thứ tự giảm dần bằng cách dùng vòng lặp for
+        for (int i = 0; i < nums.size() - 1; i++) {
+            int maxIndex = i;  // Giả sử phần tử lớn nhất là nums[i]
+            for (int j = i + 1; j < nums.size(); j++) {  // Duyệt qua các phần tử còn lại
+                if (nums[j] > nums[maxIndex]) {  // Tìm phần tử lớn nhất
+                    maxIndex = j;  // Cập nhật chỉ số phần tử lớn nhất
+                }
+            }
+            swap(nums[i], nums[maxIndex]);  // Hoán đổi phần tử tại i và maxIndex
+        }
+        
+        // Kiểm tra điều kiện tam giác hợp lệ
+        for (int i = 0; i < nums.size() - 2; i++) {
+            if (nums[i] < nums[i+1] + nums[i+2]) {
+                return nums[i] + nums[i+1] + nums[i+2];  // Trả về chu vi của tam giác hợp lệ
+            }
+        }
+        return 0;  // Nếu không có tam giác hợp lệ, trả về 0
+    }
+};
